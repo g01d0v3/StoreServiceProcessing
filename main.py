@@ -1,14 +1,7 @@
 import sqlalchemy
 from sqlalchemy import MetaData, Table, String, Column, Integer, Text, DateTime, Boolean
-import fastapi
 import csv
-import random
-
-
-api = fastapi.FastAPI()
-@api.get('/')
-async def hello():
-    return {'hello': 'World'}
+import endpoints
 
 
 def read_products():
@@ -22,14 +15,4 @@ def read_products():
         return table_names, product_list
 
 
-tables, products = read_products()
-metadata = MetaData()
-print(tables)
-print(products)
-
-
-# table = Table('Доступные товары', metadata,
-#               Column(tables[0], Integer(), primary_key=True),
-#               Column(tables[1], Text(), nullable=False),
-#               Column(tables[2], Integer(), nullable=False)
-#               )
+api = endpoints.api
