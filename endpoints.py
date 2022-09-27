@@ -27,7 +27,7 @@ def __home_page():
     return 'Welcome'
 
 
-@api.get('/{id}')
+@api.get('/{id}', response_model=Cheque)
 def __cheque_page(id:  int, check: Cheque):
     return Cheque
 
